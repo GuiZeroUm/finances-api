@@ -15,6 +15,7 @@ class Transaction extends Model
         'description',
         'type',
         'amount',
+        'category_id',
     ];
 
     protected $hidden = [
@@ -22,4 +23,9 @@ class Transaction extends Model
         'updated_at',
         'deleted_at'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

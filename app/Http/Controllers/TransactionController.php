@@ -15,4 +15,16 @@ class TransactionController extends Controller
     public function show(Transaction $transactionId){
         return $transactionId;
     }
+
+    public function store(Request $request)
+    {
+        $transaction = Transaction::create($request->all());
+
+        return response()->json($transaction,201);
+    }
+
+    public function test_complex(Request $request)
+    {
+        return Transaction::with('category')->get();
+    }
 }
